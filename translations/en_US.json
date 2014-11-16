@@ -1,0 +1,22 @@
+{
+  "lingo.example.1" : "Example value 1",
+  "lingo.example" : {
+    "2" : "Nested example",
+    "3" : "Nested example too.",
+    "4" : {
+      "inception" : "Double nested?"
+    }
+  },
+  "lingo.example.5" : "Arguments? {0} {1} {2}",
+  "home" : {
+    "label1" : "jabskjfabs",
+    "menu" : {
+      "menu1": "ashfkjas",
+      "menu2": "ahfjkashf",
+      "menu3": {
+        "elem1" : "kfahsf",
+        "elem2" : "safhjas"
+      }
+    }
+  }
+}
