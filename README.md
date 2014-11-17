@@ -36,8 +36,9 @@ Usage:
   2. Initialize a Lingo like this:
   
       ```go
-        lingo := New("en_US", "path/to/translations/dir")
+        lingo := New("default_locale", "path/to/translations/dir")
       ```
+      
   3. Get bundle for specific locale via either `string`: 
   
       ```go
