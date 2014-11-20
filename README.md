@@ -12,6 +12,10 @@ Features:
 
 Usage:
 ------
+  1. Import Lingo into your project
+      ```go
+      import "github.com/kortem/lingo"
+      ```
   1. Create a dir to store translations, and write them in JSON files named [locale].json. For example:
   
       ```    
@@ -39,20 +43,20 @@ Usage:
   2. Initialize a Lingo like this:
   
       ```go
-        lingo := New("default_locale", "path/to/translations/dir")
+        l := lingo.New("default_locale", "path/to/translations/dir")
       ```
       
   3. Get bundle for specific locale via either `string`: 
   
       ```go
-        t1 := lingo.TranslationsForLocale("en_US")
-        t2 := lingo.TranslationsForLocale("de_DE")
+        t1 := l.TranslationsForLocale("en_US")
+        t2 := l.TranslationsForLocale("de_DE")
       ```
       This way Lingo will return the bundle for specific locale, or default if given is not found.
       Alternatively (or primarily), you can get it with `*http.Request`:
       
       ```go
-        t := lingo.TranslationsForRequest(req)
+        t := l.TranslationsForRequest(req)
       ```
       This way Lingo finds best suited locale via `Accept-Language` header, or if there is no match, returns default.
       `Accept-Language` header is set by the browser, so basically it will serve the language the user has set to his browser.
