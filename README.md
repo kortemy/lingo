@@ -13,8 +13,9 @@ Features:
 Usage:
 ------
   1. Import Lingo into your project
+  
       ```go
-      import "github.com/kortem/lingo"
+        import "github.com/kortem/lingo"
       ```
   1. Create a dir to store translations, and write them in JSON files named [locale].json. For example:
   
