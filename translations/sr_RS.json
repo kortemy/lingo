@@ -1,22 +1,32 @@
 {
-  "lingo.example.1" : "Srbija value 1",
-  "lingo.example" : {
-    "2" : "Nested Srbija",
-    "3" : "Nested Srbija too.",
-    "4" : {
-      "inception" : "Double nested?"
+  "main.title" : "CutleryPlus",
+  "main.subtitle" : "Escajg za svakoga",
+  "menu" : {
+    "home" : "Pocetna",
+    "products": {
+      "self": "Proizvodi",
+      "forks" : "Viljuske",
+      "knives" : "Nozevi",
+      "spoons" : "Kasike"
+    },
+    "gallery" : "Galerija",
+    "about" : "O nama",
+    "contact" : "Kontakt"
+  },
+  "home" : {
+    "title": "Dobrodosli u CutleryPlus!",
+    "text" : {
+      "p1": "Lorem ipsum...",
+      "p2": "Jos jedan ipsum lorem."
     }
   },
-  "lingo.example.5" : "Arguments? {0} {1} {2}",
-  "home" : {
-    "label1" : "jabskjfabs",
-    "menu" : {
-      "menu1": "ashfkjas",
-      "menu2": "ahfjkashf",
-      "menu3": {
-        "elem1" : "kfahsf",
-        "elem2" : "safhjas"
-      }
+  "error" : {
+    "404" : "Stranica {0} ne postoji.",
+    "500" : "Greska sa nase strane, pokusajte ponovo.",
+    "contact" : {
+      "name" : "Ime ne sme biti prazno.",
+      "email" : "Email ne sme biti prazan.",
+      "text" : "Ne mozete poslati praznu poruku."
     }
   }
 }

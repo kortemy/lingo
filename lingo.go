@@ -55,7 +55,7 @@ type T struct {
 	transl map[string]interface{}
 }
 
-// Get traverses the translations map and finds translation for
+// Value traverses the translations map and finds translation for
 // given key. If no translation is found, returns value of given key.
 func (t T) Value(key string, args ...string) string {
 	if t.exists(key) {
@@ -72,7 +72,7 @@ func (t T) Value(key string, args ...string) string {
 			newt := &T{
 				transl: t.transl[k1].(map[string]interface{}),
 			}
-			return newt.Value(k2)
+			return newt.Value(k2, args...)
 		}
 	}
 	return key
