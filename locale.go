@@ -13,7 +13,11 @@ type Locale struct {
 }
 
 func (l *Locale) Name() string {
-	return l.Lang + "_" + l.Country
+	if len(l.Country) > 0 {
+		return l.Lang + "_" + l.Country
+	} else {
+		return l.Lang
+	}
 }
 
 func ParseLocale(locale string) Locale {
