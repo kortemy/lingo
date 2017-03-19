@@ -7,19 +7,22 @@ import (
 	"strings"
 )
 
+// Locale is locale value from the Accept-Language header in request
 type Locale struct {
 	Lang, Country string
 	Qual          float64
 }
 
+// Name returns the locale value in 'lang' or 'lang_country' format
+// eg: de_DE, en_US, gb
 func (l *Locale) Name() string {
 	if len(l.Country) > 0 {
 		return l.Lang + "_" + l.Country
-	} else {
-		return l.Lang
 	}
+	return l.Lang
 }
 
+// ParseLocale creates a Locale from a locale string
 func ParseLocale(locale string) Locale {
 	locsplt := strings.Split(locale, "_")
 	resp := Locale{}
@@ -31,7 +34,7 @@ func ParseLocale(locale string) Locale {
 }
 
 const (
-	accept_language = "Accept-Language"
+	acceptLanguage = "Accept-Language"
 )
 
 func supportedLocales(alstr string) []Locale {
@@ -51,10 +54,13 @@ func supportedLocales(alstr string) []Locale {
 	return locales
 }
 
+// GetLocales returns supported locales for the given requet
 func GetLocales(r *http.Request) []Locale {
-	return supportedLocales(r.Header.Get(accept_language))
+	return supportedLocales(r.Header.Get(acceptLanguage))
 }
 
+// GetPreferredLocale return preferred locale for the given reuqest
+// returns error if there is no preferred locale
 func GetPreferredLocale(r *http.Request) (*Locale, error) {
 	locales := GetLocales(r)
 	if len(locales) == 0 {
@@ -74,9 +80,8 @@ func parseCountry(val string) string {
 	spl := strings.Split(locale, "-")
 	if len(spl) > 1 {
 		return spl[1]
-	} else {
-		return ""
 	}
+	return ""
 }
 
 func parseQual(val string) float64 {
@@ -87,7 +92,6 @@ func parseQual(val string) float64 {
 			return 1
 		}
 		return qual
-	} else {
-		return 1
 	}
+	return 1
 }

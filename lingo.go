@@ -65,7 +65,7 @@ func (t T) Value(key string, args ...string) string {
 		}
 	}
 	ksplt := strings.Split(key, ".")
-	for i, _ := range ksplt {
+	for i := range ksplt {
 		k1 := strings.Join(ksplt[0:i], ".")
 		k2 := strings.Join(ksplt[i:len(ksplt)], ".")
 		if t.exists(k1) {
