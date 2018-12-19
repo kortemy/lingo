@@ -87,11 +87,15 @@ func parseCountry(val string) string {
 func parseQual(val string) float64 {
 	spl := strings.Split(val, ";")
 	if len(spl) > 1 {
-		qual, err := strconv.ParseFloat(strings.Split(spl[1], "=")[1], 64)
-		if err != nil {
-			return 1
+		qualSpl := strings.Split(spl[1], "=")
+		if len(qualSpl) > 1 {
+			qual, err := strconv.ParseFloat(qualSpl[1], 64)
+			if err != nil {
+				return 1
+			}
+			return qual
 		}
-		return qual
 	}
 	return 1
 }
+

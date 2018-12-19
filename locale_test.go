@@ -5,6 +5,11 @@ import (
 )
 
 func TestLocale(t *testing.T) {
+	l0 := supportedLocales("ja-JP;q")
+	if len(l0) != 1 {
+		t.Errorf("Expected number of locales \"1\", got %d", len(l0))
+		t.Fail()
+	}
 	l1 := supportedLocales("en,de-AT; q=0.8,de;q=0.6,bg; q=0.4,en-US;q=0.2,sr;q=0.2")
 	if len(l1) != 6 {
 		t.Errorf("Expected number of locales \"6\", got %d", len(l1))
